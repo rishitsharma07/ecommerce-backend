@@ -3,7 +3,7 @@ spring:
     name: ecommerce-backend
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/ecommerce_db
+    url: jdbc:postgresql://localhost:5432/ecommerce_db?TimeZone=Asia/Kolkata
     username: postgres
     password: admin123
 
@@ -14,6 +14,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
 
 jwt:
   secret: 4a7d9f2c8b1e6a3d5f0c2e8b4a7d9f2c8b1e6a3d5f0c2e8b4a7d9f2c8b1e6a3d
