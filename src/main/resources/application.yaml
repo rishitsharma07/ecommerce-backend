@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/ecommerce_db?TimeZone=Asia/Kolkata
     username: postgres
-    password: admin123
+    password: ${DB_PASSWORD}
 
   jpa:
     hibernate:
@@ -18,5 +18,5 @@ spring:
           time_zone: UTC
 
 jwt:
-  secret: 4a7d9f2c8b1e6a3d5f0c2e8b4a7d9f2c8b1e6a3d5f0c2e8b4a7d9f2c8b1e6a3d
-  expiration: 86400000
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
