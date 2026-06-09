@@ -1,6 +1,7 @@
 package com.ecommerce.ecommercebackend.entity;
 
 import com.ecommerce.ecommercebackend.enums.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +29,7 @@ public class User implements UserDetails {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 
@@ -37,13 +39,29 @@ public class User implements UserDetails {
     private Role role;
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
-    @Override public String getUsername() { return email; }
-    @Override public boolean isAccountNonExpired() { return true; }
-    @Override public boolean isAccountNonLocked() { return true; }
-    @Override public boolean isCredentialsNonExpired() { return true; }
-    @Override public boolean isEnabled() { return true; }
+
+    @Override
+    @JsonIgnore
+    public String getUsername() { return email; }
+
+    @Override
+    @JsonIgnore
+    public boolean isAccountNonExpired() { return true; }
+
+    @Override
+    @JsonIgnore
+    public boolean isAccountNonLocked() { return true; }
+
+    @Override
+    @JsonIgnore
+    public boolean isCredentialsNonExpired() { return true; }
+
+    @Override
+    @JsonIgnore
+    public boolean isEnabled() { return true; }
 }

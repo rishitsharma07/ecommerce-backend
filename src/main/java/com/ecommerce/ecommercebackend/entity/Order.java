@@ -1,6 +1,7 @@
 package com.ecommerce.ecommercebackend.entity;
 
 import com.ecommerce.ecommercebackend.enums.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,7 @@ public class Order {
     private User user;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("order")
     private List<OrderItem> items;
 
     @Enumerated(EnumType.STRING)
