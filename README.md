@@ -90,7 +90,7 @@ The server starts on `http://localhost:8080`
 | PUT | `/api/orders/{id}/status` | ADMIN |
 
 ## Project Structure
-
+```
 src/main/java/com/ecommerce/ecommercebackend/
 ├── config/         # Security, JWT filter, CORS
 ├── controller/     # REST controllers
@@ -99,4 +99,7 @@ src/main/java/com/ecommerce/ecommercebackend/
 ├── enums/          # Role, OrderStatus
 ├── repository/     # Spring Data JPA repositories
 └── service/        # Business logic
-
+```
+## Frontend
+The frontend repository is available at:
+https://github.com/rishitsharma07/ecommerce-frontend
